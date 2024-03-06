@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundDistance;
     [Header("Terrain Detection")]
     [SerializeField] private LayerMask terrainLayer;
-    [Header("Sprite Rendering")]
-    [SerializeField] private SpriteRenderer sRenderer;
+    [Header("Flip Sprite")]
+    [SerializeField] private Transform rotationTransform;
 
     private Rigidbody rBody;
 
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void FlipSprite(float x)
     {
-        if (x != 0 && x < 0) sRenderer.flipX = true;
-        else if (x != 0 && x > 0) sRenderer.flipX = false;
+        if (x != 0 && x < 0) rotationTransform.rotation = Quaternion.Euler(rotationTransform.rotation.eulerAngles.x, 180f, rotationTransform.rotation.eulerAngles.z);
+        else if (x != 0 && x > 0) rotationTransform.rotation = Quaternion.Euler(rotationTransform.rotation.eulerAngles.x, 0f, rotationTransform.rotation.eulerAngles.z);
     }
 }
