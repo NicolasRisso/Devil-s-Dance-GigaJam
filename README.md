@@ -5,3 +5,6 @@ Desenvolvido por:
 
 Versão da Unity:
 2021.3.19f1 LTS
+
+Packages Usados:
+Unity 2D Sprite
