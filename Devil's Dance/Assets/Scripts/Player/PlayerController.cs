@@ -4,39 +4,42 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Parameters")]
     [SerializeField] private float speed;
-    [SerializeField] private float groundDistance;
+    [SerializeField] private float gravity;
     [Header("Terrain Detection")]
+    [SerializeField] private float groundDistance;
     [SerializeField] private LayerMask terrainLayer;
     [Header("Flip Sprite")]
     [SerializeField] private Transform rotationTransform;
 
-    private Rigidbody rBody;
+    private CharacterController charController;
+
+    public bool isGrounded = false;
+
+    private Vector3 velocity;
 
     private void Start()
     {
-        rBody = GetComponent<Rigidbody>();
+        charController = GetComponent<CharacterController>();
     }
 
     private void Update()
     {
-        FloorDetection();
+        Gravity();
+        GroundCheck();
         Movement();
     }
 
-    private void FloorDetection()
+    private void Gravity()
     {
-        RaycastHit hit;
-        Vector3 castPos = transform.position;
-        castPos.y += 1;
-        if (Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
-        {
-            if (hit.collider != null)
-            {
-                Vector3 movePos = transform.position;
-                movePos.y = hit.point.y + groundDistance;
-                transform.position = movePos;
-            }
-        }
+        velocity.y += gravity * Time.deltaTime;
+        charController.Move(velocity * Time.deltaTime);
+    }
+
+    private void GroundCheck()
+    {
+        //transform.position - new Vector3(0f, 0.5f * charController.height + 0.5f * charController.radius, 0f)
+        isGrounded = Physics.CheckSphere(transform.position - new Vector3(0f, 0.25f * charController.height, 0f), groundDistance, terrainLayer);
+        if (isGrounded && velocity.y < 0) velocity.y = -2f;
     }
 
     private void Movement()
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         Vector3 moveDir = new Vector3(x, 0, y);
-        rBody.velocity = moveDir * speed;
+        charController.Move(moveDir * speed * Time.deltaTime);
         FlipSprite(x);
     }
 
