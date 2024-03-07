@@ -72,8 +72,9 @@ public class FootstepsSoundPlayer : MonoBehaviour
                 if (textureSound.albedo == terrain.terrainData.terrainLayers[primaryIndex].diffuseTexture)
                 {
                     AudioClip clip = GetClipFromTextureSound(textureSound);
+                    audioSource.pitch = playerController.GetCurrentSpeedDifference();
                     audioSource.PlayOneShot(clip);
-                    yield return new WaitForSeconds(clip.length);
+                    yield return new WaitForSeconds(clip.length / playerController.GetCurrentSpeedDifference());
                 }
             }
         }
@@ -89,6 +90,7 @@ public class FootstepsSoundPlayer : MonoBehaviour
                         if (textureSound.albedo == terrain.terrainData.terrainLayers[i].diffuseTexture)
                         {
                             AudioClip clip = GetClipFromTextureSound(textureSound);
+                            audioSource.pitch = playerController.GetCurrentSpeedDifference();
                             audioSource.PlayOneShot(clip, alphaMap[0, 0, i]);
                             clips.Add(clip);
                             clipIndex++;
@@ -98,7 +100,7 @@ public class FootstepsSoundPlayer : MonoBehaviour
                 }
             }
             float longestClip = clips.Max(clips => clips.length);
-            yield return new WaitForSeconds(longestClip);
+            yield return new WaitForSeconds(longestClip / playerController.GetCurrentSpeedDifference());
         }
     }
 
@@ -108,8 +110,9 @@ public class FootstepsSoundPlayer : MonoBehaviour
         {
             if (textureSound.albedo == renderer.material.GetTexture("_MainTex")){
                 AudioClip clip = GetClipFromTextureSound(textureSound);
+                audioSource.pitch = playerController.GetCurrentSpeedDifference();
                 audioSource.PlayOneShot(clip);
-                yield return new WaitForSeconds(clip.length);
+                yield return new WaitForSeconds(clip.length / playerController.GetCurrentSpeedDifference());
             }
         }
     }
