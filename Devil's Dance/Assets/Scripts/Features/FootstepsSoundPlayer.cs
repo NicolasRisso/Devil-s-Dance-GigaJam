@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController), typeof(PlayerController), typeof(AudioSource))]
 public class FootstepsSoundPlayer : MonoBehaviour
 {
-    [SerializeField] private LayerMask floorLayer;
     [SerializeField] private TextureSound[] textureSounds;
     [SerializeField] private bool BlendTerrainSounds;
 
@@ -35,22 +35,18 @@ public class FootstepsSoundPlayer : MonoBehaviour
     {
         while (true)
         {
-            //Debug.DrawRay(transform.position + new Vector3(0f, -0.25f, 0f), Vector3.down * 1f, Color.red);
-            if (playerController.isGrounded && controller.velocity != Vector3.zero &&
-                Physics.Raycast(transform.position - new Vector3(0f, 0.25f * controller.height, 0f), Vector3.down, out RaycastHit hit, 1f, floorLayer))
+            if (playerController.GetIsGrounded() && controller.velocity != Vector3.zero &&
+                Physics.Raycast(transform.position - new Vector3(0f, 0.5f * playerController.GetPixelArtScale() * controller.height, 0f), Vector3.down, out RaycastHit hit, 1.5f, playerController.GetFloorLayer()))
             {
                 if (hit.collider.TryGetComponent<Terrain>(out Terrain terrain))
                 {
-                    Debug.Log("Terreno");
                     yield return StartCoroutine(PlayFootstepSoundFromTerrain(terrain, hit.point));
                 }
                 else if (hit.collider.TryGetComponent<Renderer>(out Renderer renderer))
                 {
-                    Debug.Log("A");
                     yield return StartCoroutine(PlayFootstepSoundFromRenderer(renderer));
                 }
             }
-            Debug.Log(playerController.isGrounded);
             yield return null;
         }
     }
@@ -80,6 +76,29 @@ public class FootstepsSoundPlayer : MonoBehaviour
                     yield return new WaitForSeconds(clip.length);
                 }
             }
+        }
+        else
+        {
+            List<AudioClip> clips = new List<AudioClip>();
+            int clipIndex = 0;
+            for (int i = 0; i < alphaMap.Length; i++)
+            {
+                if (alphaMap[0, 0, i] > 0){
+                    foreach(TextureSound textureSound in textureSounds)
+                    {
+                        if (textureSound.albedo == terrain.terrainData.terrainLayers[i].diffuseTexture)
+                        {
+                            AudioClip clip = GetClipFromTextureSound(textureSound);
+                            audioSource.PlayOneShot(clip, alphaMap[0, 0, i]);
+                            clips.Add(clip);
+                            clipIndex++;
+                            break;
+                        }
+                    }
+                }
+            }
+            float longestClip = clips.Max(clips => clips.length);
+            yield return new WaitForSeconds(longestClip);
         }
     }
 
