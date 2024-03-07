@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &293758565
+--- !u!1001 &229456602
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -132,19 +132,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 589916641716859672, guid: 539418fdbb3ff5b4a8e09047f7d261c5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 589916641716859672, guid: 539418fdbb3ff5b4a8e09047f7d261c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7895187
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 589916641716859672, guid: 539418fdbb3ff5b4a8e09047f7d261c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000019073486
+      value: 0.598
       objectReference: {fileID: 0}
     - target: {fileID: 589916641716859672, guid: 539418fdbb3ff5b4a8e09047f7d261c5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.286883
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 589916641716859672, guid: 539418fdbb3ff5b4a8e09047f7d261c5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -177,10 +177,6 @@ PrefabInstance:
     - target: {fileID: 589916641716859673, guid: 539418fdbb3ff5b4a8e09047f7d261c5, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 589916641716859677, guid: 539418fdbb3ff5b4a8e09047f7d261c5, type: 3}
-      propertyPath: terrainLayer.m_Bits
-      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 539418fdbb3ff5b4a8e09047f7d261c5, type: 3}
@@ -314,7 +310,7 @@ Transform:
   - {fileID: 349725261}
   - {fileID: 515949597}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &400513743
 GameObject:

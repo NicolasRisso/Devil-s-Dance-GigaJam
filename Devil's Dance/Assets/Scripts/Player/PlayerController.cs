@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
 
     private void GroundCheck()
     {
-        //transform.position - new Vector3(0f, 0.5f * charController.height + 0.5f * charController.radius, 0f)
         isGrounded = Physics.CheckSphere(transform.position - new Vector3(0f, 0.25f * charController.height, 0f), groundDistance, terrainLayer);
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
     }

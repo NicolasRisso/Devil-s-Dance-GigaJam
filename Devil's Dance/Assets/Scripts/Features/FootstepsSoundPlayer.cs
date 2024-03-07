@@ -35,7 +35,7 @@ public class FootstepsSoundPlayer : MonoBehaviour
     {
         while (true)
         {
-            Debug.DrawRay(transform.position + new Vector3(0f, -0.25f, 0f), Vector3.down * 1f, Color.red);
+            //Debug.DrawRay(transform.position + new Vector3(0f, -0.25f, 0f), Vector3.down * 1f, Color.red);
             if (playerController.isGrounded && controller.velocity != Vector3.zero &&
                 Physics.Raycast(transform.position - new Vector3(0f, 0.25f * controller.height, 0f), Vector3.down, out RaycastHit hit, 1f, floorLayer))
             {
