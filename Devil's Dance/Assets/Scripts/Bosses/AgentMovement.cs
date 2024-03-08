@@ -10,6 +10,7 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] private float godsVoiceDistance;
     [SerializeField] [Range(0f, 2f)] private float randomPointAccuracyTolerance;
     [SerializeField] private LayerMask playerLayerMask;
+    //Float para tolerancia de fuga do player
 
     private Transform player;
     private NavMeshAgent navMeshAgent;
