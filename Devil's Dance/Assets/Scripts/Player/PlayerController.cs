@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController), typeof(Stamina))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Parameters")]
@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform rotationTransform;
 
     private CharacterController charController;
+    private Stamina stamina;
 
     private bool isGrounded = false;
-    private bool isRunning = false;
 
     private Vector3 velocity;
 
@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         charController = GetComponent<CharacterController>();
+        stamina = GetComponent<Stamina>();
         speed = walkSpeed;
     }
 
@@ -62,15 +63,13 @@ public class PlayerController : MonoBehaviour
 
     private void AdjustSpeed()
     {
-        if (Input.GetButton("Sprint"))
+        if (stamina.GetIsRunning())
         {
             speed = runSpeed;
-            isRunning = true;
         }
         else
         {
             speed = walkSpeed;
-            isRunning = false;
         }
     }
 
@@ -85,10 +84,6 @@ public class PlayerController : MonoBehaviour
         return isGrounded;
     }
 
-    public bool GetIsRunning()
-    {
-        return isRunning;
-    }
     public float GetPixelArtScale()
     {
         return rotationTransform.localScale.x;

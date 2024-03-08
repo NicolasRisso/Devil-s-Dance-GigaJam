@@ -172,7 +172,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -209,10 +209,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 589916641716859672}
-  - component: {fileID: 589916641716859677}
   - component: {fileID: 1959596293549950258}
   - component: {fileID: 7494498741300537180}
+  - component: {fileID: 589916641716859677}
   - component: {fileID: 4935577171204877369}
+  - component: {fileID: 7353837193713528602}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -239,26 +240,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &589916641716859677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589916641716859673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ffd123f73fe9dd4cb8456b579193f96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 2
-  runSpeed: 3
-  gravity: -9.81
-  groundDistance: 0.25
-  terrainLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  rotationTransform: {fileID: 589916640373327092}
 --- !u!82 &1959596293549950258
 AudioSource:
   m_ObjectHideFlags: 0
@@ -369,10 +350,30 @@ CharacterController:
   m_Height: 0.75
   m_Radius: 0.125
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.15
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.0001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &589916641716859677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589916641716859673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ffd123f73fe9dd4cb8456b579193f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 2
+  runSpeed: 3
+  gravity: -9.81
+  groundDistance: 0.25
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  rotationTransform: {fileID: 589916640373327092}
 --- !u!114 &4935577171204877369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +452,22 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 9b1f6289334342841afe6a5a8349e7ec, type: 3}
     - {fileID: 8300000, guid: afeb90013e6764449ae1616f47705ff7, type: 3}
   BlendTerrainSounds: 1
+--- !u!114 &7353837193713528602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589916641716859673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa22ff013de9c8343873d3dc8e3bcbec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 50
+  staminaConsuptionPerSecond: 10
+  staminaRegebPerSecond: 7.5
+  minimumStaminaToRunAgain: 0.45
 --- !u!1 &4291204191725068485
 GameObject:
   m_ObjectHideFlags: 0
