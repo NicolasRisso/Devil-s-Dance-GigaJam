@@ -5,7 +5,7 @@ public class Stamina : MonoBehaviour
     [Header("Stamina Stats")]
     [SerializeField] private float maxStamina;
     [SerializeField] private float staminaConsuptionPerSecond;
-    [SerializeField] private float staminaRegebPerSecond;
+    [SerializeField] private float staminaRegenPerSecond;
     [SerializeField] [Range(0, 1)] private float minimumStaminaToRunAgain;
 
     private float currentStamina;
@@ -22,12 +22,11 @@ public class Stamina : MonoBehaviour
     {
         DetectedSprintInput();
         ManageStamina();
-        Debug.Log(currentStamina);
     }
 
     private void ManageStamina()
     {
-        if (!isRunning) currentStamina += staminaRegebPerSecond * Time.deltaTime;
+        if (!isRunning) currentStamina += staminaRegenPerSecond * Time.deltaTime;
         else currentStamina -= staminaConsuptionPerSecond * Time.deltaTime;
         if (currentStamina < 0f)
         {
