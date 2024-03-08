@@ -77,7 +77,7 @@
 				float ty = _Time.x * 10;
 				float yt = i.uv.y - ty;
 				float offset = snoise(fixed2(yt * 3.0, 0.0)) * 0.2;
-				float rollSpeed = 0.05;
+				float rollSpeed = 0;
 
 				offset = offset * _ThickDistort * offset * _ThickDistort * offset;
 

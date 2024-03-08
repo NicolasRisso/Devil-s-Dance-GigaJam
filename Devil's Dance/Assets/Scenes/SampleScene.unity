@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0014785795, g: 0.0013591028, b: 0.0012890887, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -484,27 +484,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &1583955211 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 589916640696666560, guid: 539418fdbb3ff5b4a8e09047f7d261c5, type: 3}
-  m_PrefabInstance: {fileID: 229456602}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1583955215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583955211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d54c6bfda817a46eb9d976719fd25909, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  on: 1
-  amount: 0.001
-  speed: 0
-  material: {fileID: 2100000, guid: 668e4ca5bbe07424e90bffec7dd41598, type: 2}
 --- !u!4 &543450652509016374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1617168098250600023, guid: 9e07a0ab376c6734a89e10b7d843aa52, type: 3}
