@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 6953786197806689074}
   - component: {fileID: 6652908521180050216}
   - component: {fileID: 565477539419099155}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6953786197806689074
 Transform:
@@ -94,12 +94,12 @@ GameObject:
   - component: {fileID: 7446774800817626896}
   - component: {fileID: 7064324658837308607}
   - component: {fileID: 6788998011214766098}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7446774800817626896
 Transform:
@@ -177,12 +177,12 @@ GameObject:
   - component: {fileID: 8113360421766954778}
   - component: {fileID: 7888410761593833227}
   - component: {fileID: 3752262946700806130}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8113360421766954778
 Transform:
@@ -4998,12 +4998,12 @@ GameObject:
   - component: {fileID: 8183544743375126581}
   - component: {fileID: 7240171226743054872}
   - component: {fileID: 2486601505561754505}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8183544743375126581
 Transform:
@@ -5081,12 +5081,12 @@ GameObject:
   - component: {fileID: 2593895762318665804}
   - component: {fileID: 3241304205690445513}
   - component: {fileID: 4597779295355181373}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2593895762318665804
 Transform:
@@ -5164,12 +5164,12 @@ GameObject:
   - component: {fileID: 1457937139229358943}
   - component: {fileID: 1080353754200374462}
   - component: {fileID: 7460275479880303022}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1457937139229358943
 Transform:
@@ -5247,12 +5247,12 @@ GameObject:
   - component: {fileID: 5985722233475112082}
   - component: {fileID: 5712797650714717198}
   - component: {fileID: 4899734255854081898}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5985722233475112082
 Transform:
@@ -5330,12 +5330,12 @@ GameObject:
   - component: {fileID: 1336056811799469781}
   - component: {fileID: 6800147838208027243}
   - component: {fileID: 3082913212169083255}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1336056811799469781
 Transform:
@@ -5413,12 +5413,12 @@ GameObject:
   - component: {fileID: 571687731493706145}
   - component: {fileID: 6988460741818578504}
   - component: {fileID: 4588995817732931157}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &571687731493706145
 Transform:
@@ -5496,12 +5496,12 @@ GameObject:
   - component: {fileID: 343602411304418478}
   - component: {fileID: 4187265283555753822}
   - component: {fileID: 10832332895435952}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &343602411304418478
 Transform:
@@ -5579,12 +5579,12 @@ GameObject:
   - component: {fileID: 8845447711105475862}
   - component: {fileID: 233068166872732552}
   - component: {fileID: 8519134464356044631}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8845447711105475862
 Transform:
@@ -5662,12 +5662,12 @@ GameObject:
   - component: {fileID: 5670297196432916083}
   - component: {fileID: 919132149499985620}
   - component: {fileID: 6386479616468259400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: campfire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5670297196432916083
 Transform:
@@ -5736,7 +5736,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 25
+  MaxDistance: 15
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5822,12 +5822,12 @@ GameObject:
   - component: {fileID: 7560859054357351922}
   - component: {fileID: 8404544950869487402}
   - component: {fileID: 679173536363289984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7560859054357351922
 Transform:
@@ -5904,12 +5904,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5276609338245389831}
   - component: {fileID: 5276609338245389828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5276609338245389831
 Transform:
@@ -5999,12 +5999,12 @@ GameObject:
   - component: {fileID: 2857949023529411192}
   - component: {fileID: 4363197718135307955}
   - component: {fileID: 4462870310241906918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2857949023529411192
 Transform:
@@ -6082,12 +6082,12 @@ GameObject:
   - component: {fileID: 774168839420405879}
   - component: {fileID: 3621756967723057442}
   - component: {fileID: 7085707904356448734}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &774168839420405879
 Transform:
@@ -6165,12 +6165,12 @@ GameObject:
   - component: {fileID: 1994369985260854121}
   - component: {fileID: 7618765527020847953}
   - component: {fileID: 1543544153043550442}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1994369985260854121
 Transform:
@@ -6248,12 +6248,12 @@ GameObject:
   - component: {fileID: 5766075428272194255}
   - component: {fileID: 8990134913067651901}
   - component: {fileID: 6983356551305993739}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5766075428272194255
 Transform:
