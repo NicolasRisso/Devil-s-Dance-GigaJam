@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,19 +16,29 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] private float patrolMaxDistance;
     [SerializeField] private float godsVoiceDistance;
     [SerializeField] [Range(0f, 2f)] private float randomPointAccuracyTolerance;
+    [Header("Persistance Configuration")]
+    [SerializeField] private float timeToGiveUpSeeking;
     [Header("Layer Masks and Tags")]
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask obstaclesLayerMask;
+    [SerializeField] private LayerMask hideSpotMask;
     [SerializeField] private string hiddenTag;
-    [SerializeField] private string hideSpotTag;
+
+    private enum State
+    {
+        patroling,
+        chasing,
+        seeking
+    }
 
     private Transform player;
     private NavMeshAgent navMeshAgent;
 
-    private bool playerInSightRange = false;
     private bool walkPointSet = false;
 
     private Vector3 walkPoint;
+
+    private State state;
 
     private void Awake()
     {
@@ -38,10 +49,9 @@ public class AgentMovement : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(state);
         DetectPlayer();
-        Debug.Log(playerInSightRange);
-        if (!playerInSightRange) Patrolling();
-        else ChasePlayer();
+        ChangeState();
     }
 
     private void Patrolling()
@@ -56,6 +66,31 @@ public class AgentMovement : MonoBehaviour
     private void ChasePlayer()
     {
         navMeshAgent.destination = player.position;
+    }
+
+    private void SeekPlayer()
+    {
+        if (!walkPointSet) SearchWalkPoint();
+        navMeshAgent.destination = walkPoint;
+
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+        if (distanceToWalkPoint.magnitude < randomPointAccuracyTolerance) walkPointSet = false;
+    }
+
+    private void ChangeState()
+    {
+        switch (state)
+        {
+            case State.seeking:
+                SeekPlayer();
+                break;
+            case State.chasing:
+                ChasePlayer();
+                break;
+            default:
+                Patrolling();
+                break;
+        }
     }
 
     private void SearchWalkPoint()
@@ -86,15 +121,20 @@ public class AgentMovement : MonoBehaviour
 
     private void AdjustSpeed()
     {
-        if (playerInSightRange) navMeshAgent.speed = huntSpeed;
+        if (state != State.patroling) navMeshAgent.speed = huntSpeed;
         else navMeshAgent.speed = patrolSpeed;
     }
 
     private void DetectPlayer()
     {
-        if (IsPlayerInFieldOfView()) playerInSightRange = true;
-        else if (Physics.CheckSphere(transform.position, touchDetection, playerLayerMask)) playerInSightRange = true;
-        else playerInSightRange = false;
+        if (IsPlayerInFieldOfView() || Physics.CheckSphere(transform.position, touchDetection, playerLayerMask)) state = State.chasing;
+        else if (state == State.chasing)
+        { 
+            state = State.seeking;
+            walkPoint = player.transform.position;
+            walkPointSet = true;
+            StartCoroutine(GiveUpSeeking());
+        }
         AdjustSpeed();
     }
 
@@ -107,7 +147,7 @@ public class AgentMovement : MonoBehaviour
     private bool IsPlayerInFieldOfView()
     {
         Vector3 directionToPlayer = player.position - transform.position;
-        if (!playerInSightRange)
+        if (state != State.chasing)
         {
             if (directionToPlayer.magnitude > sightRange) return false;
             if (Physics.Raycast(transform.position, directionToPlayer, out RaycastHit hit, directionToPlayer.magnitude, obstaclesLayerMask)) return false;
@@ -121,4 +161,11 @@ public class AgentMovement : MonoBehaviour
             return true;
         }
     }
+
+    private IEnumerator GiveUpSeeking()
+    {
+        yield return new WaitForSeconds(timeToGiveUpSeeking);
+        if (state != State.chasing) state = State.patroling;
+        Debug.Log("Patrolling back");
+    } 
 }

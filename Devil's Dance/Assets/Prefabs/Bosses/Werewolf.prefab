@@ -145,14 +145,17 @@ MonoBehaviour:
   patrolMaxDistance: 10
   godsVoiceDistance: 15
   randomPointAccuracyTolerance: 1.5
+  timeToGiveUpSeeking: 5
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 256
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  hideSpotMask:
+    serializedVersion: 2
+    m_Bits: 1024
   hiddenTag: Hidden
-  hideSpotTag: Hide Spot
 --- !u!114 &7951261910692183058
 MonoBehaviour:
   m_ObjectHideFlags: 0
