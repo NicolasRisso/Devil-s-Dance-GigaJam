@@ -151,6 +151,7 @@ public class AgentMovement : MonoBehaviour
         {
             if (directionToPlayer.magnitude > sightRange) return false;
             if (Physics.Raycast(transform.position, directionToPlayer, out RaycastHit hit, directionToPlayer.magnitude, obstaclesLayerMask)) return false;
+            if (player.CompareTag(hiddenTag) && transform.CompareTag(hiddenTag)) return false;
             float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer.normalized);
             return angleToPlayer <= sightFOV;
         }
