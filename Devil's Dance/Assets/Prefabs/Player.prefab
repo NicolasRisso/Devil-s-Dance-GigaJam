@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 1583955219}
   - component: {fileID: 1583955220}
   - component: {fileID: 1583955221}
+  - component: {fileID: 1736634982}
   m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -450,6 +451,23 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1736634982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589916640696666560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef94f9e4db7e324b88afce89a77e132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animDurationHide: 1.75
+  animDurationLeave: 0.5
+  endIntensity: 0.4
+  normalFilter: 22000
+  muffedFilter: 8000
 --- !u!1 &589916641716859673
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +483,7 @@ GameObject:
   - component: {fileID: 1959596293549950258}
   - component: {fileID: 7494498741300537180}
   - component: {fileID: 474512779}
+  - component: {fileID: 966709433}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -629,7 +648,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -740,6 +759,31 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589916641716859673}
   m_Enabled: 1
+--- !u!169 &966709433
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589916641716859673}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4291204191725068485
 GameObject:
   m_ObjectHideFlags: 0

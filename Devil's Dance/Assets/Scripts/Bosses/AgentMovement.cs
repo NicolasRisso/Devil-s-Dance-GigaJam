@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +19,7 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] [Range(0f, 2f)] private float randomPointAccuracyTolerance;
     [Header("Persistance Configuration")]
     [SerializeField] private float timeToGiveUpSeeking;
+    [SerializeField] private float maxDistanceToVerifyHideSpot;
     [Header("Layer Masks and Tags")]
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask obstaclesLayerMask;
@@ -31,10 +33,13 @@ public class AgentMovement : MonoBehaviour
         seeking
     }
 
+    private List<Transform> hideSpots = new List<Transform>();
+
     private Transform player;
     private NavMeshAgent navMeshAgent;
 
     private bool walkPointSet = false;
+    private bool haveAlreadyVerifiedNearbyHideSpots = false;
 
     private Vector3 walkPoint;
 
@@ -45,11 +50,11 @@ public class AgentMovement : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = patrolSpeed;
         player = GameObject.Find("Player").transform;
+        FindAllHideSpots();
     }
 
     private void Update()
     {
-        Debug.Log(state);
         DetectPlayer();
         ChangeState();
     }
@@ -151,7 +156,7 @@ public class AgentMovement : MonoBehaviour
         {
             if (directionToPlayer.magnitude > sightRange) return false;
             if (Physics.Raycast(transform.position, directionToPlayer, out RaycastHit hit, directionToPlayer.magnitude, obstaclesLayerMask)) return false;
-            if (player.CompareTag(hiddenTag) && transform.CompareTag(hiddenTag)) return false;
+            if (player.CompareTag(hiddenTag) && !transform.CompareTag(hiddenTag)) return false;
             float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer.normalized);
             return angleToPlayer <= sightFOV;
         }
@@ -161,6 +166,13 @@ public class AgentMovement : MonoBehaviour
             if (directionToPlayer.magnitude > escapeFromSightRange) return false;
             return true;
         }
+    }
+
+    void FindAllHideSpots()
+    {
+        hideSpots.Clear();
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();
+        foreach (GameObject obj in allObjects) if (((1 << obj.layer) & hideSpotMask) != 0) hideSpots.Add(obj.transform);
     }
 
     private IEnumerator GiveUpSeeking()
