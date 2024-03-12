@@ -340,7 +340,7 @@ TerrainCollider:
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: dec2f3296df594f4d851e6eca3c00985, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!218 &400513745
 Terrain:
   m_ObjectHideFlags: 0
@@ -666,21 +666,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8cee24f6f7a97f4a90c8951e39232c6, type: 3}
---- !u!1 &7951261910692183057 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7951261911202926694, guid: d8cee24f6f7a97f4a90c8951e39232c6, type: 3}
-  m_PrefabInstance: {fileID: 7951261910692183056}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7951261910692183065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7951261910692183057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a64be6c17e037044863dd3e6552d440, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 1.5

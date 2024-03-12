@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7951261911202926699}
   - component: {fileID: 7951261911202926700}
   - component: {fileID: 7951261910692183058}
+  - component: {fileID: 7951261910692183065}
   m_Layer: 0
   m_Name: Werewolf
   m_TagString: Untagged
@@ -143,7 +144,7 @@ MonoBehaviour:
   sightFOV: 120
   patrolMaxDistance: 10
   godsVoiceDistance: 15
-  randomPointAccuracyTolerance: 1
+  randomPointAccuracyTolerance: 1.5
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -166,3 +167,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 5
   viewAngle: 120
+--- !u!114 &7951261910692183065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951261911202926694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a64be6c17e037044863dd3e6552d440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.5
