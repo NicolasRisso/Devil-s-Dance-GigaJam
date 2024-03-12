@@ -39,7 +39,9 @@ public class AgentMovement : MonoBehaviour
     private NavMeshAgent navMeshAgent;
 
     private bool walkPointSet = false;
-    private bool haveAlreadyVerifiedNearbyHideSpots = false;
+
+    private int hideSpotIndex = 0;
+    private int maxHideSpotIndex = 0;
 
     private Vector3 walkPoint;
 
@@ -75,7 +77,7 @@ public class AgentMovement : MonoBehaviour
 
     private void SeekPlayer()
     {
-        if (!walkPointSet) SearchWalkPoint();
+        if (!walkPointSet) SearchHideSpots();
         navMeshAgent.destination = walkPoint;
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
@@ -96,6 +98,18 @@ public class AgentMovement : MonoBehaviour
                 Patrolling();
                 break;
         }
+    }
+
+    private void SearchHideSpots()
+    {
+        if (hideSpotIndex < maxHideSpotIndex)
+        {
+            walkPoint = hideSpots[hideSpotIndex].position;
+            walkPointSet = true;
+            hideSpotIndex++;
+            Debug.Log(hideSpotIndex);
+        }
+        else SearchWalkPoint();
     }
 
     private void SearchWalkPoint()
@@ -136,8 +150,10 @@ public class AgentMovement : MonoBehaviour
         else if (state == State.chasing)
         { 
             state = State.seeking;
+            hideSpotIndex = 0;
             walkPoint = player.transform.position;
             walkPointSet = true;
+            OrderHideSpots();
             StartCoroutine(GiveUpSeeking());
         }
         AdjustSpeed();
@@ -175,10 +191,31 @@ public class AgentMovement : MonoBehaviour
         foreach (GameObject obj in allObjects) if (((1 << obj.layer) & hideSpotMask) != 0) hideSpots.Add(obj.transform);
     }
 
+    private void OrderHideSpots()
+    {
+        if (player == null)
+        {
+            Debug.LogError("Player transform is not set.");
+            return;
+        }
+        hideSpots.Sort((a, b) =>
+            Vector3.Distance(a.position, player.position).CompareTo(Vector3.Distance(b.position, player.position))
+        );
+        maxHideSpotIndex = 0;
+        foreach (Transform spot in hideSpots)
+        {
+            if (Vector3.Distance(spot.position, player.position) <= maxDistanceToVerifyHideSpot) maxHideSpotIndex++;
+        }
+        Debug.Log(maxHideSpotIndex);
+        foreach (Transform hideSpot in hideSpots)
+        {
+            Debug.Log("HideSpot: " + hideSpot.name + ", Distance: " + Vector3.Distance(hideSpot.position, player.position));
+        }
+    }
+
     private IEnumerator GiveUpSeeking()
     {
         yield return new WaitForSeconds(timeToGiveUpSeeking);
         if (state != State.chasing) state = State.patroling;
-        Debug.Log("Patrolling back");
     } 
 }

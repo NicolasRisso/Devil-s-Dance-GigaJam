@@ -146,7 +146,7 @@ MonoBehaviour:
   godsVoiceDistance: 15
   randomPointAccuracyTolerance: 1.5
   timeToGiveUpSeeking: 5
-  maxDistanceToVerifyHideSpot: 0
+  maxDistanceToVerifyHideSpot: 8
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 256
