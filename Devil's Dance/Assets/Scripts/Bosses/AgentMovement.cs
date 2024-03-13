@@ -81,7 +81,7 @@ public class AgentMovement : MonoBehaviour
         navMeshAgent.destination = walkPoint;
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        if (distanceToWalkPoint.magnitude < randomPointAccuracyTolerance) walkPointSet = false;
+        if (distanceToWalkPoint.magnitude < (randomPointAccuracyTolerance / 2f)) walkPointSet = false;
     }
 
     private void ChangeState()
