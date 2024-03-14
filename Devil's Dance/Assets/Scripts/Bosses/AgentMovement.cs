@@ -109,7 +109,6 @@ public class AgentMovement : MonoBehaviour
             walkPoint = hideSpots[hideSpotIndex].position;
             walkPointSet = true;
             hideSpotIndex++;
-            Debug.Log(hideSpotIndex);
         }
         else SearchWalkPoint();
     }
@@ -142,7 +141,11 @@ public class AgentMovement : MonoBehaviour
 
     private void AdjustSpeed()
     {
-        if (trapActivated.GetIsTrapped()) return;
+        if (trapActivated.GetIsTrapped())
+        {
+            navMeshAgent.speed = 0f;
+            return;
+        }
         if (state != State.patroling) navMeshAgent.speed = huntSpeed;
         else navMeshAgent.speed = patrolSpeed;
     }
@@ -209,11 +212,10 @@ public class AgentMovement : MonoBehaviour
         {
             if (Vector3.Distance(spot.position, player.position) <= maxDistanceToVerifyHideSpot) maxHideSpotIndex++;
         }
-        Debug.Log(maxHideSpotIndex);
-        foreach (Transform hideSpot in hideSpots)
-        {
-            Debug.Log("HideSpot: " + hideSpot.name + ", Distance: " + Vector3.Distance(hideSpot.position, player.position));
-        }
+        //foreach (Transform hideSpot in hideSpots)
+        //{
+        //    Debug.Log("HideSpot: " + hideSpot.name + ", Distance: " + Vector3.Distance(hideSpot.position, player.position));
+        //}
     }
 
     private IEnumerator GiveUpSeeking()

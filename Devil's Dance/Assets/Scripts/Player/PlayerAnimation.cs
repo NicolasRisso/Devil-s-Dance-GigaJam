@@ -18,7 +18,6 @@ public class PlayerAnimation : MonoBehaviour
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
         animator.SetFloat("MoveMagnitude", moveInput.magnitude);
-        Debug.Log(moveInput.magnitude);
 
         if (!animLocked && moveInput != Vector2.zero)
         {

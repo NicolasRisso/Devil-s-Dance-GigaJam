@@ -29,7 +29,6 @@ public class HideFeedback : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(parent.tag);
         if (parent.CompareTag("Hidden"))
         {
             if (vignette.intensity.value <= endIntensity) vignette.intensity.value += (endIntensity / animDurationHide) * Time.deltaTime;
