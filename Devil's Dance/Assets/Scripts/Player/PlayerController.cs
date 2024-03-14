@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         charController = GetComponent<CharacterController>();
         stamina = GetComponent<Stamina>();
+        AudioListener.volume = 1f;
         speed = walkSpeed;
     }
 
