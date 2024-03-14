@@ -37,6 +37,7 @@ public class AgentMovement : MonoBehaviour
 
     private Transform player;
     private NavMeshAgent navMeshAgent;
+    private TrapActivated trapActivated;
 
     private bool walkPointSet = false;
 
@@ -51,6 +52,7 @@ public class AgentMovement : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = patrolSpeed;
+        trapActivated = GetComponent<TrapActivated>();
         player = GameObject.Find("Player").transform;
         FindAllHideSpots();
     }
@@ -140,6 +142,7 @@ public class AgentMovement : MonoBehaviour
 
     private void AdjustSpeed()
     {
+        if (trapActivated.GetIsTrapped()) return;
         if (state != State.patroling) navMeshAgent.speed = huntSpeed;
         else navMeshAgent.speed = patrolSpeed;
     }
