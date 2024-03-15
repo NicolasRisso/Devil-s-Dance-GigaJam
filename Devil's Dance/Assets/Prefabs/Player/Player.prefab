@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 589916640032196511}
   - component: {fileID: 589916640032196510}
   - component: {fileID: 229456604}
+  - component: {fileID: 229456607}
   m_Layer: 8
   m_Name: PixelArt
   m_TagString: Untagged
@@ -200,6 +201,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &229456607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589916640032196508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29cd7dd8989910f4b8766a222a391c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animLocked: 0
 --- !u!1 &589916640373327093
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +538,7 @@ GameObject:
   - component: {fileID: 7494498741300537180}
   - component: {fileID: 474512779}
   - component: {fileID: 966709433}
+  - component: {fileID: 7721258901016369369}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -823,6 +838,20 @@ AudioLowPassFilter:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7721258901016369369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589916641716859673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68447fdb7fa75844aa148030328c81ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdThreshold: 0.25
+  interactAnimDuration: 0.82
 --- !u!1 &4291204191725068485
 GameObject:
   m_ObjectHideFlags: 0

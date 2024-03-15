@@ -26,7 +26,7 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] private LayerMask hideSpotMask;
     [SerializeField] private string hiddenTag;
 
-    private enum State
+    public enum State
     {
         patroling,
         chasing,
@@ -190,7 +190,7 @@ public class AgentMovement : MonoBehaviour
         }
     }
 
-    void FindAllHideSpots()
+    private void FindAllHideSpots()
     {
         hideSpots.Clear();
         GameObject[] allObjects = FindObjectsOfType<GameObject>();
@@ -223,4 +223,9 @@ public class AgentMovement : MonoBehaviour
         yield return new WaitForSeconds(timeToGiveUpSeeking);
         if (state != State.chasing) state = State.patroling;
     } 
+
+    public State GetState()
+    {
+        return state;
+    }
 }

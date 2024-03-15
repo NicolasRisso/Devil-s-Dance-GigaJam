@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController), typeof(Stamina))]
+[RequireComponent(typeof(CharacterController), typeof(Stamina), typeof(Interact))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Parameters")]
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController charController;
     private Stamina stamina;
+    private Interact interact;
 
     private bool isGrounded = false;
 
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         charController = GetComponent<CharacterController>();
         stamina = GetComponent<Stamina>();
+        interact = GetComponent<Interact>();
         AudioListener.volume = 1f;
         speed = walkSpeed;
     }
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
+        if (interact.GetInteracting()) return;
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
         if (x != 0 || y != 0)
