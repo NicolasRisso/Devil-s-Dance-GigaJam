@@ -20,7 +20,6 @@ public class Trap : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         if (!(((1 << other.gameObject.layer) & playerMask) != 0))
         {
             TrapActivated trapActivated = other.GetComponent<TrapActivated>();

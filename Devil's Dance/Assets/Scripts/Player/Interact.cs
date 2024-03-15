@@ -6,8 +6,12 @@ public class Interact : MonoBehaviour
     [Header("Interact Configuration")]
     [SerializeField] private float holdThreshold = 0.5f;
     [SerializeField] private float interactAnimDuration = 0.82f;
+    [SerializeField] private float interactRange = 0.75f;
+    [SerializeField] private LayerMask interactableLayer;
 
     private Animator animator;
+
+    private TrapInventory trapInventory;
 
     private bool isEKeyHeld = false;
     private float eKeyHoldTime = 0f;
@@ -17,6 +21,7 @@ public class Interact : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        trapInventory = GetComponent<TrapInventory>();
     }
 
     private void Update()
@@ -51,9 +56,28 @@ public class Interact : MonoBehaviour
         }
     }
 
+    private void InteractSphere()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactRange, interactableLayer);
+        foreach (Collider collider in hitColliders)
+        {
+            TrapPickup trapPickup = collider.GetComponent<TrapPickup>();
+            if (trapPickup is { })
+            {
+                if (trapInventory.TryAddTrap())
+                {
+                    trapPickup.TrapPicked();
+                }
+                else trapPickup.NoSpace();
+                return;
+            }
+        }
+    }
+
     private IEnumerator StopInteractAnim()
     {
         yield return new WaitForSeconds(interactAnimDuration);
+        InteractSphere();
         animator.SetBool("Interacting", false);
         interacting = false;
     }

@@ -5,12 +5,14 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private bool animLocked = false;
 
     private Animator animator;
+    private PlayerController playerController;
 
     private Vector2 moveInput = Vector2.zero;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        playerController = GetComponentInParent<PlayerController>();
     }
 
     void Update()
@@ -24,5 +26,6 @@ public class PlayerAnimation : MonoBehaviour
             animator.SetFloat("MoveX", moveInput.x);
             animator.SetFloat("MoveY", moveInput.y);
         }
+        animator.speed = playerController.GetCurrentSpeedDifference();
     }
 }
