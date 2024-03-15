@@ -4,7 +4,8 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
     [Header("Interact Configuration")]
-    [SerializeField] private float holdThreshold = 0.5f;
+    [SerializeField] private float holdThreshold;
+    [SerializeField] [Range(0.5f, 5f)] private float holdThresholdLimit;
     [SerializeField] private float interactAnimDuration = 0.82f;
     [SerializeField] private float interactRange = 0.75f;
     [SerializeField] private LayerMask interactableLayer;
@@ -26,6 +27,7 @@ public class Interact : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(eKeyHoldTime);
         if (Input.GetButtonDown("Interact"))
         {
             isEKeyHeld = true;
@@ -34,9 +36,15 @@ public class Interact : MonoBehaviour
         if (isEKeyHeld)
         {
             eKeyHoldTime += Time.deltaTime;
-            if (eKeyHoldTime >= holdThreshold)
+            if (eKeyHoldTime >= holdThreshold && eKeyHoldTime < holdThresholdLimit)
             {
                 interacting = true;
+                //Começa Anim da trap
+            }
+            else if (eKeyHoldTime >= holdThresholdLimit)
+            {
+                bool tmp = trapInventory.PlaceTrap();
+                isEKeyHeld = false;
             }
         }
         if (Input.GetButtonUp("Interact"))

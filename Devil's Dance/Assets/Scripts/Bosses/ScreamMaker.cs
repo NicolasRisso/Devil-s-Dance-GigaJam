@@ -46,10 +46,13 @@ public class ScreamMaker : MonoBehaviour
         }
         else if (lastState != agentMovement.GetState())
         {
-            if (agentMovement.GetState() != AgentMovement.State.patroling && lastState != agentMovement.GetState())
+            if (agentMovement.GetState() == AgentMovement.State.chasing && lastState != agentMovement.GetState())
             {
-                audioSource.clip = audioClips[0];
-                audioSource.Play();
+                if (!(lastState == AgentMovement.State.seeking))
+                {
+                    audioSource.clip = audioClips[0];
+                    audioSource.Play();
+                }
             }
             else if (agentMovement.GetState() == AgentMovement.State.patroling && lastState != agentMovement.GetState())
             {
