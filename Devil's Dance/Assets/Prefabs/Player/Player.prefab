@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 966709433}
   - component: {fileID: 7721258901016369369}
   - component: {fileID: 215708041}
+  - component: {fileID: 1850720445}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -690,8 +691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 50
   staminaConsuptionPerSecond: 10
-  staminaRegenPerSecond: 7.5
-  minimumStaminaToRunAgain: 0.45
+  staminaRegenPerSecond: 6
+  minimumStaminaToRunAgain: 0.6
 --- !u!82 &1959596293549950258
 AudioSource:
   m_ObjectHideFlags: 0
@@ -852,6 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdThreshold: 0.25
+  holdThresholdLimit: 1.5
   interactAnimDuration: 0.5
   interactRange: 0.75
   interactableLayer:
@@ -869,6 +871,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c46f39a3a7281304fbf92302a4cee521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trapGO: {fileID: 4030074236022716261, guid: 09c875899f2c1754eada3b7ec866c877, type: 3}
+  yAdjust: -0.325
+--- !u!54 &1850720445
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589916641716859673}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4291204191725068485
 GameObject:
   m_ObjectHideFlags: 0

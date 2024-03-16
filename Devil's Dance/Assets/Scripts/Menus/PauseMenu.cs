@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
         gamePaused = pause;
         menuUI.SetActive(pause);
         PauseAllAudios(pause);
-        if (pause)
+        if (gamePaused)
         {
             Time.timeScale = 0f;
             AudioListener.volume /= volumeDecreaseDuringPause;
@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 1f;
             AudioListener.volume *= volumeDecreaseDuringPause;
+            if (AudioListener.volume > 1f) AudioListener.volume = 1f;
         }
     }
 
