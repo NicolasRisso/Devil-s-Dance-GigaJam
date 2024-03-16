@@ -1,14 +1,22 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
-    [SerializeField] private LayerMask playerLayer;
+    private Transform player;
+    public float detectionRadius = 1.5f;
 
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.gameObject.layer == playerLayer)
+        player = player = GameObject.Find("Player").transform;
+    }
+
+    void Update()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer <= detectionRadius)
         {
-            Debug.Log("O monstro tocou no player!");
+            SceneManager.LoadScene("DeathScene");
         }
     }
 }
