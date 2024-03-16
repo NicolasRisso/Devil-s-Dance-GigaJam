@@ -6,13 +6,13 @@ public class PauseMenu : MonoBehaviour
 {
     [Header("Pause Options")]
     [SerializeField] private float volumeDecreaseDuringPause = 2f;
+    [SerializeField] private LayerMask musicLayer;
 
     private Dictionary<AudioSource, bool> audioSourcesStatus = new Dictionary<AudioSource, bool>();
 
     private GameObject menuUI;
     private AudioSource[] audioSources;
 
-    private LayerMask musicLayer;
 
     private bool gamePaused = false;
 
@@ -20,7 +20,6 @@ public class PauseMenu : MonoBehaviour
     {
         menuUI = transform.GetChild(0).gameObject;
         audioSources = FindObjectsOfType<AudioSource>();
-        musicLayer = LayerMask.GetMask("Music");
     }
 
     private void Update()
@@ -60,7 +59,7 @@ public class PauseMenu : MonoBehaviour
             foreach (AudioSource audioSource in audioSources)
             {
                 audioSourcesStatus[audioSource] = audioSource.isPlaying;
-                audioSource.Pause();
+                if (audioSource.gameObject.layer != 13) audioSource.Pause();
             }
         }
         else
