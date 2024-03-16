@@ -1,18 +1,37 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private MoonAltar moon;
+
+    private Animator animator;
+    private AudioSource audioSource;
+
+    private bool inUse = false;
+
+    private void Awake()
     {
-        
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RotateMoon()
     {
-        
+        if (moon is { } && !inUse)
+        {
+            moon.RotateObject();
+            animator.SetBool("Interacting", true);
+            audioSource.Play();
+            StartCoroutine(EndAnim());
+            inUse = true;
+        }
+    }
+
+    private IEnumerator EndAnim()
+    {
+        yield return new WaitForSeconds(1.1f);
+        animator.SetBool("Interacting", false);
+        inUse = false;
     }
 }

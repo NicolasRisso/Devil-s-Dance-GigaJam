@@ -82,7 +82,11 @@ public class Interact : MonoBehaviour
             }
             else
             {
-
+                Lever lever = collider.GetComponentInChildren<Lever>();
+                if (lever is { })
+                {
+                    lever.RotateMoon();
+                }
             }
         }
     }
