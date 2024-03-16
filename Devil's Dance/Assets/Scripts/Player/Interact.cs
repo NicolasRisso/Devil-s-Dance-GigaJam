@@ -27,7 +27,6 @@ public class Interact : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(eKeyHoldTime);
         if (Input.GetButtonDown("Interact"))
         {
             isEKeyHeld = true;
@@ -39,10 +38,11 @@ public class Interact : MonoBehaviour
             if (eKeyHoldTime >= holdThreshold && eKeyHoldTime < holdThresholdLimit)
             {
                 interacting = true;
-                //Começa Anim da trap
+                animator.SetBool("IsPlacingTrap", true);
             }
             else if (eKeyHoldTime >= holdThresholdLimit)
             {
+                animator.SetBool("IsPlacingTrap", false);
                 bool tmp = trapInventory.PlaceTrap();
                 isEKeyHeld = false;
             }
@@ -59,6 +59,7 @@ public class Interact : MonoBehaviour
                 interacting = true;
                 StartCoroutine(StopInteractAnim());
             }
+            animator.SetBool("IsPlacingTrap", false);
             isEKeyHeld = false;
             eKeyHoldTime = 0f;
         }
@@ -78,6 +79,10 @@ public class Interact : MonoBehaviour
                 }
                 else trapPickup.NoSpace();
                 return;
+            }
+            else
+            {
+
             }
         }
     }
