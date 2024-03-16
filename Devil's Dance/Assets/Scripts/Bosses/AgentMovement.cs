@@ -19,6 +19,7 @@ public class AgentMovement : MonoBehaviour
     [SerializeField] [Range(0f, 2f)] private float randomPointAccuracyTolerance;
     [Header("Persistance Configuration")]
     [SerializeField] private float timeToGiveUpSeeking;
+    [SerializeField] private float timeToGiveUpSeekingAfterBeingTrapped;
     [SerializeField] private float maxDistanceToVerifyHideSpot;
     [Header("Layer Masks and Tags")]
     [SerializeField] private LayerMask playerLayerMask;
@@ -220,7 +221,8 @@ public class AgentMovement : MonoBehaviour
 
     private IEnumerator GiveUpSeeking()
     {
-        yield return new WaitForSeconds(timeToGiveUpSeeking);
+        if (!trapActivated.GetIsTrapped()) yield return new WaitForSeconds(timeToGiveUpSeeking);
+        else yield return new WaitForSeconds(timeToGiveUpSeekingAfterBeingTrapped);
         if (state != State.chasing) state = State.patroling;
     } 
 

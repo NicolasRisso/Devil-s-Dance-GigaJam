@@ -13,6 +13,7 @@ public class ScreamMaker : MonoBehaviour
     private AudioSource audioSource;
     private AgentMovement agentMovement;
     private TrapActivated trapActivated;
+    private Music music;
 
     private AgentMovement.State lastState;
 
@@ -21,6 +22,7 @@ public class ScreamMaker : MonoBehaviour
 
     private void Awake()
     {
+        music = FindObjectOfType<Music>();
         audioSource = GetComponent<AudioSource>();
         agentMovement = GetComponent<AgentMovement>();
         trapActivated = GetComponent<TrapActivated>();
@@ -43,6 +45,11 @@ public class ScreamMaker : MonoBehaviour
         {
             playedOnce = false;
             lastTrappedState = false;
+            if (agentMovement.GetState() == AgentMovement.State.seeking)
+            {
+                audioSource.clip = audioClips[0];
+                audioSource.Play();
+            }
         }
         else if (lastState != agentMovement.GetState())
         {
@@ -52,12 +59,14 @@ public class ScreamMaker : MonoBehaviour
                 {
                     audioSource.clip = audioClips[0];
                     audioSource.Play();
+                    music.StartChaseMusic();
                 }
             }
             else if (agentMovement.GetState() == AgentMovement.State.patroling && lastState != agentMovement.GetState())
             {
                 audioSource.clip = audioClips[2];
                 audioSource.Play();
+                music.StartAmbientMusic();
             }
             lastState = agentMovement.GetState();
         }
