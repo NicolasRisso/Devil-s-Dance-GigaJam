@@ -6,14 +6,28 @@ public class Sworld : MonoBehaviour
 
     private Material oldMaterial;
 
+    private Win win;
+
+    public bool isRight = false;
+
     private void Start()
     {
         oldMaterial = GetComponent<MeshRenderer>().material;
+        win = FindObjectOfType<Win>();
     }
 
     public void paintMaterial(bool value)
     {
-        if (value) GetComponent<MeshRenderer>().material = lightMaterial;
-        else GetComponent<MeshRenderer>().material = oldMaterial;
+        if (value)
+        {
+            GetComponent<MeshRenderer>().material = lightMaterial;
+            isRight = true;
+        }
+        else 
+        {
+            GetComponent<MeshRenderer>().material = oldMaterial;
+            isRight = false;
+        }
+        win.Verify();
     }
 }

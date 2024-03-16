@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Farm.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/DeathScene.unity
+    guid: 0c82edd059fb6e14fb05e25b88cb2545
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 41d16b0affaa31944af6b3b304abad25
   m_configObjects: {}
