@@ -13,10 +13,12 @@ public class KillPlayer : MonoBehaviour
 
     void Update()
     {
+        
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer <= detectionRadius)
         {
             SceneManager.LoadScene("DeathScene");
         }
+        Debug.Log(distanceToPlayer);
     }
 }

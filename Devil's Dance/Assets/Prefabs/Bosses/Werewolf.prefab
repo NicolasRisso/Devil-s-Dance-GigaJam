@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6832189229377596597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.356, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalPosition: {x: 0, y: -0.02, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7951261911202926698}
@@ -252,7 +252,7 @@ NavMeshAgent:
   m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 150
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -274,14 +274,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolSpeed: 1.25
-  huntSpeed: 2.5
+  huntSpeed: 2.65
   sightRange: 5
   escapeFromSightRange: 10
   touchDetection: 1.5
   sightFOV: 120
   patrolMaxDistance: 10
   godsVoiceDistance: 15
-  randomPointAccuracyTolerance: 1.5
+  randomPointAccuracyTolerance: 1.6
   timeToGiveUpSeeking: 5
   timeToGiveUpSeekingAfterBeingTrapped: 8
   maxDistanceToVerifyHideSpot: 8
@@ -475,4 +475,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2830f584044fefe4eb9bc89a2e289204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 0.45
+  detectionRadius: 0.5

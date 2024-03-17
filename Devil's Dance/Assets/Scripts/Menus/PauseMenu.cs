@@ -36,12 +36,16 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 0f;
             AudioListener.volume /= volumeDecreaseDuringPause;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else 
         {
             Time.timeScale = 1f;
             AudioListener.volume *= volumeDecreaseDuringPause;
             if (AudioListener.volume > 1f) AudioListener.volume = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
@@ -54,11 +58,13 @@ public class PauseMenu : MonoBehaviour
 
     private void PauseAllAudios(bool value)
     {
+        audioSources = FindObjectsOfType<AudioSource>();
         if (value)
         {
             audioSourcesStatus.Clear();
             foreach (AudioSource audioSource in audioSources)
             {
+                if (audioSource is null) continue;
                 audioSourcesStatus[audioSource] = audioSource.isPlaying;
                 if (audioSource.gameObject.layer != 13) audioSource.Pause();
             }
