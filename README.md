@@ -1,5 +1,4 @@
-Devil's Dance é um jogo HD2D com gráficos na temática de PS1 com filtro VHS com camera top-down e em primeira pessoa.
-O jogo faz parte da GigaJam e está atualmente concorrendo nela.
+Devil's Dance is an HD2D game featuring PS1-themed graphics with a VHS filter, incorporating both top-down and first-person camera perspectives. The game is a part of GigaJam and is currently competing in it.
 
 GDD:
 https://docs.google.com/presentation/d/10RCMRmshtqakmvfiBg0vgIR2tbbJDMhZ039a051u5Wk/edit#slide=id.p
@@ -7,14 +6,10 @@ https://docs.google.com/presentation/d/10RCMRmshtqakmvfiBg0vgIR2tbbJDMhZ039a051u
 Itch.io Page:
 https://nikkasdev.itch.io/devils-dance
 
-Desenvolvido por:
-- Lucas Glubas de Souza
+Developed by:
+- Lucas (Glubinhas)
 - Nicolas Pereira Risso Vieira
 - Pedro Palazzi de Souza
 
-Versão da Unity:
+Unity Version:
 2021.3.19f1 LTS
-
-Packages Usados:
-Unity 2D Sprite
-FootStepSounds
