@@ -4,6 +4,9 @@ O jogo faz parte da GigaJam e está atualmente concorrendo nela.
 GDD:
 https://docs.google.com/presentation/d/10RCMRmshtqakmvfiBg0vgIR2tbbJDMhZ039a051u5Wk/edit#slide=id.p
 
+Itch.io Page:
+https://nikkasdev.itch.io/devils-dance
+
 Desenvolvido por:
 - Lucas Glubas de Souza
 - Nicolas Pereira Risso Vieira
