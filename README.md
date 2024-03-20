@@ -1,4 +1,4 @@
-Devil's Dance is an HD2D game featuring PS1-themed graphics with a VHS filter, incorporating both top-down and first-person camera perspectives. The game is a part of GigaJam and is currently competing in it.
+Devil's Dance is an HD2D game featuring PS1-themed graphics with a VHS filter, incorporating both top-down and first-person camera perspectives (we will code that, I hope). The game is a part of GigaJam and is currently competing in it.
 
 GDD:
 https://docs.google.com/presentation/d/10RCMRmshtqakmvfiBg0vgIR2tbbJDMhZ039a051u5Wk/edit#slide=id.p
